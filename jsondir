@@ -1,0 +1,39 @@
+#!/usr/bin/python3
+import sys
+import json
+import os
+
+
+class Stack:
+    def __init__(self):
+        self.nodes = []
+
+    def isEmpty(self):
+        return self.nodes == []
+
+    def push(self, node):
+        self.nodes.append(node)
+
+    def pop(self):
+        return self.nodes.pop()
+
+    def peek(self):
+        return self.nodes[len(self.nodes)-1]
+
+    def size(self):
+        return len(self.nodes)
+
+
+def main():
+    printJSON = False
+    cwd = os.getcwd()
+
+    for x in range(0, len(sys.argv)):
+        if x != 0:
+            print(sys.argv[x])
+
+    print("\n" + cwd)
+
+
+if __name__ == "__main__":
+    main()
