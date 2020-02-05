@@ -1,7 +1,7 @@
-#!/usr/bin/python3
 import sys
 import json
 import os
+
 
 def listdirs(path):
     dirs = [name for name in os.listdir(path)
@@ -52,15 +52,13 @@ def createDirectory(path):
 
 
 def main():
-    # Arguement handling
-    printJSON = False
-
     for x in range(0, len(sys.argv)):
         if x != 0:
             print(sys.argv[x])
 
     cwd = os.getcwd()
 
+    # recursive algorithm that gets directory and file information
     jsonData = createDirectory(cwd)
 
     with open("directory_architecture.json", "w") as write_file:
