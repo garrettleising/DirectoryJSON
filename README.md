@@ -1,2 +1,2 @@
 # DirectoryJSON
-Returns users directory tree in JSON format
+Returns users directory tree structure in JSON format
