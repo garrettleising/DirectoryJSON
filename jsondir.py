@@ -61,7 +61,7 @@ def main():
     # recursive algorithm that gets directory and file information
     jsonData = createDirectory(cwd)
 
-    with open("directory_architecture.json", "w") as write_file:
+    with open("directory.json", "w") as write_file:
         json.dump(jsonData, write_file, separators=(',', ':'), indent=2)
 
 
