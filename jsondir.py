@@ -21,7 +21,7 @@ def listfiles(path):
     if len(files) > 0:
         for x in range(0, len(files)):
             files[x] = (path + "/" + files[x])
-            
+
     return files
 
 # returns a dictionary describing a file
