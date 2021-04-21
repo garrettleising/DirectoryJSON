@@ -2,7 +2,7 @@ import sys
 import json
 import os
 
-
+# returns all directories at given path as a list of strings
 def listdirs(path):
     dirs = [name for name in os.listdir(path)
             if os.path.isdir(os.path.join(path, name))]
@@ -13,7 +13,7 @@ def listdirs(path):
 
     return dirs
 
-
+# returns all files at given path as a list of strings
 def listfiles(path):
     files = [name for name in os.listdir(path)
              if os.path.isfile(os.path.join(path, name))]
@@ -21,10 +21,10 @@ def listfiles(path):
     if len(files) > 0:
         for x in range(0, len(files)):
             files[x] = (path + "/" + files[x])
-
+            
     return files
 
-
+# returns a dictionary describing a file
 def createFile(path):
     data = {}
     data["name"] = os.path.basename(path)
@@ -32,7 +32,7 @@ def createFile(path):
     data["path"] = path
     return data
 
-
+# recursive function that stores files and directories in dictionary
 def createDirectory(path):
     data = {}
     data["name"] = os.path.basename(path)
@@ -41,6 +41,7 @@ def createDirectory(path):
     data["files"] = []
     data["directories"] = []
     subFiles = listfiles(path)
+
     for fl in subFiles:
         data["files"].append(createFile(fl))
 
@@ -57,8 +58,6 @@ def main():
             print(sys.argv[x])
 
     cwd = os.getcwd()
-
-    # recursive algorithm that gets directory and file information
     jsonData = createDirectory(cwd)
 
     with open("directory.json", "w") as write_file:
